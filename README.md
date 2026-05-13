@@ -4,6 +4,12 @@
 
 ## Integrantes
 
+*[Steven Hinestroza Lopez]
+(https://github.com/stevenh22)
+
+*[Nicolas Andres Rodriguez Moreno]
+(https://github.com/nicolasanrodriguezmo-dotcom)
+
 ## Documentación
 
 ## Diagramas
