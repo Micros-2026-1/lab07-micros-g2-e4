@@ -25,6 +25,8 @@ El funcionamiento del sistema se basa en el protocolo I²C, el cual utiliza una 
 
 1. ¿Por qué I²C se clasifica como half-duplex mientras que SPI es full-duplex? ¿Qué implicación práctica tiene esa diferencia para el control de una LCD?.
 
+## 1.  I²C (half duplex) vs SPI (full duplex) y su implicacion en el control de LCD
+
 Half-duplex significa que la línea SDA solo puede transportar datos en una dirección a la vez: o el maestro transmite al esclavo, o el esclavo responde al maestro, pero nunca ambos simultáneamente. En I²C esto es estructural, ya que solo existe una línea de datos compartida.Full-duplex en SPI es posible porque hay dos líneas de datos independientes: MOSI (Master Out, Slave In) y MISO (Master In, Slave Out), permitiendo enviar y recibir en el mismo ciclo de reloj.
 
 2. En I2C_init() se asigna SSPCON1 = 0x28. Desglose ese valor bit a bit e identifique qué modo de operación del MSSP se está seleccionando y por qué se elige ese valor.
