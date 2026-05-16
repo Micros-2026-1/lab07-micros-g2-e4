@@ -85,17 +85,23 @@ con la operación actual.
 
 4. El fuse PBADEN = OFF está presente en la configuración. ¿Qué efecto tendría dejarlo en ON sobre los pines del puerto B, y por qué podría causar problemas si se usan esos pines como salidas digitales?.
 
+## 4. Efecto de fuse `PBADEN = ON` sobre el puerto B
+
 El fuse PBADEN controla el comportamiento inicial de algunos pines del puerto B del PIC al momento del encendido o reinicio del microcontrolador.
 
 Cuando PBADEN = ON, varios pines del puerto B se configuran automáticamente como entradas analógicas del módulo ADC. En este estado, los pines no funcionan correctamente como entradas o salidas digitales hasta que el software deshabilite manualmente la función analógica.
 
 5. Compare el control de la LCD en modo paralelo (lab04) con el modo I²C de este laboratorio. Mencione ventajas y desventajas de cada enfoque en términos de: cantidad de pines usados, velocidad de actualización y complejidad del código.
 
+## 5. LCD modo paralelo (Lab04) vs modo  I²C  
+
 El modo paralelo utiliza varias líneas de datos y control para manejar directamente la pantalla LCD. Generalmente requiere entre 6 y 8 pines del microcontrolador, lo que incrementa el uso de recursos hardware. Sin embargo, este método ofrece una velocidad de actualización mayor, ya que los datos se transfieren directamente hacia la pantalla sin protocolos adicionales de comunicación.
 
 Por otro lado, el modo I²C utiliza únicamente dos líneas (SDA y SCL) gracias al módulo expansor PCF8574. Esto representa una gran ventaja en proyectos donde se necesita ahorrar pines del microcontrolador o conectar múltiples dispositivos al mismo bus.
 
 6. El bus I²C permite conectar múltiples esclavos con solo dos hilos. Si se quisiera agregar un segundo módulo PCF8574 al mismo bus (por ejemplo, para controlar un segundo LCD), ¿qué cambio mínimo sería necesario en el hardware y en el código?
+
+## 6. Agregar un segundo PCF8574 al bus  I²C 
 
 Cambio en hardware: El PCF8574 expone tres pines de configuración de dirección: A0, A1 y A2. La dirección base es 0x27 cuando los tres están en alto. Para el segundo módulo basta con cambiar al menos uno de esos pines a nivel bajo, por ejemplo, poner A0 a GND, lo que le asigna la dirección 0x26. Ambos módulos comparten físicamente las mismas líneas SDA y SCL; no se requiere ningún cable adicional más allá de conectar el segundo módulo al mismo bus.
 
